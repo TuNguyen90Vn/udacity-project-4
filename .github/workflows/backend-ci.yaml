@@ -1,5 +1,5 @@
 # Workflow name
-name: Backend CI Workflow
+name: Backend-CI
 
 # Triggers for the workflow
 on:
@@ -18,7 +18,7 @@ on:
 # Jobs defined in the workflow
 jobs:
   lint-job:
-    name: LINT JOB
+    name: LintJob
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -42,7 +42,7 @@ jobs:
         run: cd ./starter/backend && pipenv run lint
 
   test-job:
-    name: TEST JOB
+    name: TestJob
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -67,7 +67,7 @@ jobs:
         run: cd ./starter/backend && pipenv run test
 
   build-job:
-    name: BUILD JOB
+    name: BuildJob
     needs: [lint-job, test-job]
     runs-on: ubuntu-latest
     steps:
